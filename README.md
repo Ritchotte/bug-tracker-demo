@@ -1,5 +1,7 @@
 # Bug Tracker Demo API
 
+[![CI](https://github.com/Ritchotte/bug-tracker-demo/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Ritchotte/bug-tracker-demo/actions/workflows/ci.yml)
+
 Feature-rich bug tracker backend for portfolio/demo use, built with Express and TypeScript.
 Includes a lightweight frontend dashboard served by the same app.
 
