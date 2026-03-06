@@ -5,6 +5,8 @@
 Feature-rich bug tracker backend for portfolio/demo use, built with Express and TypeScript.
 Includes a lightweight frontend dashboard served by the same app.
 
+Live Demo: add your deployed URL here after first deploy.
+
 ## Highlights
 
 - CRUD-style bug management with status transitions
@@ -78,3 +80,23 @@ curl -X POST "http://localhost:3000/seed?size=15&reset=true"
 ```
 
 Then open `http://localhost:3000/dashboard` to view live metrics, filters, and leaderboard.
+
+## Deployment
+
+### Render
+
+This repo includes a `render.yaml` blueprint.
+
+1. Push this repository to GitHub.
+2. In Render, choose New + Blueprint.
+3. Select this repository and deploy.
+4. Render will run `npm ci && npm run build` and start with `npm run start`.
+
+### Docker
+
+Build and run locally:
+
+```bash
+docker build -t bug-tracker-demo .
+docker run --rm -p 3000:3000 bug-tracker-demo
+```
