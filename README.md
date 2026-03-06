@@ -1,6 +1,7 @@
 # Bug Tracker Demo API
 
 Feature-rich bug tracker backend for portfolio/demo use, built with Express and TypeScript.
+Includes a lightweight frontend dashboard served by the same app.
 
 ## Highlights
 
@@ -20,6 +21,7 @@ npm run dev
 ```
 
 Server runs at `http://localhost:3000`.
+Dashboard at `http://localhost:3000/dashboard`.
 
 ## Scripts
 
@@ -33,6 +35,7 @@ Server runs at `http://localhost:3000`.
 ## API Snapshot
 
 - `GET /` - service info and endpoint index
+- `GET /dashboard` - visual dashboard UI
 - `GET /health` - health, uptime, and bug count
 - `POST /seed?size=10&reset=true` - generate demo data
 - `GET /bugs` - list bugs with query options:
@@ -68,3 +71,5 @@ curl -X POST http://localhost:3000/bugs \
 ```bash
 curl -X POST "http://localhost:3000/seed?size=15&reset=true"
 ```
+
+Then open `http://localhost:3000/dashboard` to view live metrics, filters, and leaderboard.

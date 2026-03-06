@@ -1,7 +1,9 @@
 import express, { NextFunction, Request, Response } from "express";
+import path from "path";
 
 const app = express();
 app.use(express.json());
+app.use(express.static(path.join(__dirname, "..", "public")));
 app.use((req, _res, next) => {
   const now = new Date().toISOString();
   console.log(`[${now}] ${req.method} ${req.url}`);
@@ -296,6 +298,10 @@ app.get("/", (_req, res) => {
       analyticsLeaderboard: "/analytics/leaderboard",
     },
   });
+});
+
+app.get("/dashboard", (_req, res) => {
+  res.sendFile(path.join(__dirname, "..", "public", "index.html"));
 });
 
 // Health + uptime

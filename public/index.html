@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bug Tracker Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="bg-shape bg-one"></div>
+    <div class="bg-shape bg-two"></div>
+
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Full-Stack Portfolio Demo</p>
+        <h1>Bug Tracker Control Room</h1>
+        <p class="subtitle">Seed data, triage bugs, and track team performance in real time.</p>
+      </div>
+      <div class="hero-actions">
+        <button id="seedBtn" class="btn btn-accent">Seed Demo Data</button>
+        <button id="refreshBtn" class="btn btn-ghost">Refresh</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="cards" id="summaryCards"></section>
+
+      <section class="panel filters-panel">
+        <h2>Filter & Search</h2>
+        <div class="filters-grid">
+          <label>
+            Search
+            <input id="search" type="text" placeholder="title or description" />
+          </label>
+          <label>
+            Status
+            <select id="status">
+              <option value="">All</option>
+              <option value="open">open</option>
+              <option value="in_progress">in_progress</option>
+              <option value="fixed">fixed</option>
+              <option value="reopened">reopened</option>
+            </select>
+          </label>
+          <label>
+            Severity
+            <select id="severity">
+              <option value="">All</option>
+              <option value="low">low</option>
+              <option value="medium">medium</option>
+              <option value="high">high</option>
+              <option value="critical">critical</option>
+            </select>
+          </label>
+          <label>
+            Assignee
+            <input id="assignee" type="text" placeholder="e.g. ruth" />
+          </label>
+          <label>
+            Sort
+            <select id="sortBy">
+              <option value="updatedAt">updatedAt</option>
+              <option value="createdAt">createdAt</option>
+              <option value="severity">severity</option>
+              <option value="id">id</option>
+            </select>
+          </label>
+          <label>
+            Order
+            <select id="order">
+              <option value="desc">desc</option>
+              <option value="asc">asc</option>
+            </select>
+          </label>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Open Bugs</h2>
+          <span id="bugCount" class="mono"></span>
+        </div>
+        <div id="bugList" class="bug-list"></div>
+      </section>
+
+      <section class="panel">
+        <h2>Team Leaderboard</h2>
+        <div id="leaderboard" class="leaderboard"></div>
+      </section>
+    </main>
+
+    <template id="bugItemTemplate">
+      <article class="bug-item">
+        <div class="bug-top">
+          <h3 class="bug-title"></h3>
+          <span class="badge severity"></span>
+        </div>
+        <p class="bug-desc"></p>
+        <div class="bug-meta mono"></div>
+        <div class="labels"></div>
+      </article>
+    </template>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
