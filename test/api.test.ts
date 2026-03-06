@@ -3,6 +3,16 @@ import { describe, expect, it } from "vitest";
 import { app } from "../src/server";
 
 describe("Bug Tracker API", () => {
+  it("serves OpenAPI JSON and Swagger UI", async () => {
+    const spec = await request(app).get("/openapi.json");
+    expect(spec.status).toBe(200);
+    expect(spec.body.openapi).toBe("3.0.3");
+    expect(spec.body.paths["/bugs"]).toBeDefined();
+
+    const docs = await request(app).get("/docs");
+    expect(docs.status).toBe(301);
+  });
+
   it("seeds demo data and reports summary", async () => {
     const seedRes = await request(app).post("/seed?size=8&reset=true");
     expect(seedRes.status).toBe(201);

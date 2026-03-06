@@ -1,5 +1,7 @@
 import express, { NextFunction, Request, Response } from "express";
 import path from "path";
+import swaggerUi from "swagger-ui-express";
+import { openApiDocument } from "./openapi";
 
 const app = express();
 app.use(express.json());
@@ -290,6 +292,8 @@ app.get("/", (_req, res) => {
     ],
     endpoints: {
       health: "/health",
+      docs: "/docs",
+      openApiSpec: "/openapi.json",
       bugs: "/bugs",
       bugDetails: "/bugs/:id",
       bugComments: "/bugs/:id/comments",
@@ -303,6 +307,12 @@ app.get("/", (_req, res) => {
 app.get("/dashboard", (_req, res) => {
   res.sendFile(path.join(__dirname, "..", "public", "index.html"));
 });
+
+app.get("/openapi.json", (_req, res) => {
+  res.json(openApiDocument);
+});
+
+app.use("/docs", swaggerUi.serve, swaggerUi.setup(openApiDocument));
 
 // Health + uptime
 app.get("/health", (_req, res) => {

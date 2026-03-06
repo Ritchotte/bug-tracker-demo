@@ -24,6 +24,7 @@ npm run dev
 
 Server runs at `http://localhost:3000`.
 Dashboard at `http://localhost:3000/dashboard`.
+Interactive API docs at `http://localhost:3000/docs`.
 
 ## Scripts
 
@@ -38,6 +39,8 @@ Dashboard at `http://localhost:3000/dashboard`.
 
 - `GET /` - service info and endpoint index
 - `GET /dashboard` - visual dashboard UI
+- `GET /docs` - interactive Swagger UI docs
+- `GET /openapi.json` - OpenAPI specification
 - `GET /health` - health, uptime, and bug count
 - `POST /seed?size=10&reset=true` - generate demo data
 - `GET /bugs` - list bugs with query options:
