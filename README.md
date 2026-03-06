@@ -17,6 +17,30 @@ Live Demo: add your deployed URL here after first deploy.
 - Demo seeding endpoint for instant showcase data
 - Automated API tests with Vitest + Supertest
 
+## Architecture
+
+```text
+Browser Dashboard (/dashboard)
+        |
+        v
+Express App (src/server.ts)
+  - REST API routes
+  - Swagger docs (/docs)
+  - Static asset serving (public/)
+        |
+        v
+In-memory domain store
+  - bugs[]
+  - activity[]
+```
+
+### Design choices
+
+- In-memory storage keeps the demo easy to run and review without setup friction.
+- A single TypeScript service file keeps API behavior discoverable for recruiters and reviewers.
+- OpenAPI + Swagger provides interactive docs without external tooling.
+- Test coverage focuses on realistic end-to-end API flows over isolated unit tests.
+
 ## Quick Start
 
 ```bash
