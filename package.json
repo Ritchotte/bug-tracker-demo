@@ -1,11 +1,15 @@
 {
   "name": "bug-tracker-demo",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Feature-rich bug tracker API demo built with Express + TypeScript",
+  "main": "dist/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "ts-node-dev --respawn --transpile-only src/server.ts"
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "typecheck": "tsc --noEmit",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/server.js",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "repository": {
     "type": "git",
@@ -25,7 +29,10 @@
   "devDependencies": {
     "@types/express": "^5.0.6",
     "@types/node": "^25.3.4",
+    "@types/supertest": "^6.0.3",
+    "supertest": "^7.1.4",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
   }
 }
