@@ -8,6 +8,7 @@
     "typecheck": "tsc --noEmit",
     "build": "tsc -p tsconfig.json",
     "start": "node dist/server.js",
+    "demo:seed": "./scripts/seed-demo.sh",
     "test": "vitest run",
     "test:watch": "vitest"
   },

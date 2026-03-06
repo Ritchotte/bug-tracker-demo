@@ -58,6 +58,7 @@ Interactive API docs at `http://localhost:3000/docs`.
 - `npm run typecheck` - run TypeScript checks
 - `npm run build` - compile to `dist/`
 - `npm run start` - run compiled build
+- `npm run demo:seed` - seed local demo data quickly
 - `npm test` - run API test suite
 - `npm run test:watch` - watch mode for tests
 
